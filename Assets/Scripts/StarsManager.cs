@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class StarsManager : MonoBehaviour
 {
@@ -51,6 +52,7 @@ public class StarsManager : MonoBehaviour
     public void SetArrow(bool value) => SetArrowEvent?.Invoke(value);
     public void SetZoom(float value) => Camera.main.orthographicSize = value;
     public void SetMass(float value) => stars[dropdown.value].GetSetMassMultiplier = value;
+    public void ResetScene() => SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     public void ShowMass(bool value) {
         showMass = value;
         massText.gameObject.SetActive(value);
