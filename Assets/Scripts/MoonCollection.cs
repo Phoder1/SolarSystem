@@ -3,10 +3,12 @@
 public class MoonCollection : MonoBehaviour
 {
     [SerializeField] private ParticleSystem particles;
+    [SerializeField] private ParticleSystem particlesTrail;
 
     [System.Obsolete]
 
-    private void OnTriggerEnter2D(Collider2D collision) {
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
         ParticleSystem ps = collision.gameObject.GetComponent<ParticleSystem>();
         ps.Play();
         collision.gameObject.GetComponent<Collider2D>().enabled = false;
@@ -14,9 +16,8 @@ public class MoonCollection : MonoBehaviour
         Destroy(collision.gameObject, ps.duration);
         if (particles != null)
             particles.emissionRate += 1;
-
-
+            particlesTrail.emissionRate += 1;
     }
 
-    
+
 }
