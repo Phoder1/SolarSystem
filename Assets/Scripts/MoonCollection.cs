@@ -1,9 +1,12 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class MoonCollection : MonoBehaviour
 {
     [SerializeField] private ParticleSystem particles;
     [SerializeField] private ParticleSystem particlesTrail;
+
+    public event Action MoonCollectedEvent;
 
     [System.Obsolete]
 
@@ -11,6 +14,7 @@ public class MoonCollection : MonoBehaviour
     {
         ParticleSystem ps = collision.gameObject.GetComponent<ParticleSystem>();
         ps.Play();
+        MoonCollectedEvent?.Invoke();
         collision.gameObject.GetComponent<Collider2D>().enabled = false;
         collision.gameObject.GetComponent<SpriteRenderer>().enabled = false;
         Destroy(collision.gameObject, ps.duration);
