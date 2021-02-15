@@ -994,7 +994,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2a84a0799a0d4344bbb6de31fc9e49a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numberOfMoons: 1
+  numberOfMoons: 5
   sunMinDistance: 6.29
   sunMaxDistance: 23.37
   moonPrefab: {fileID: 8062861142687339340, guid: f6a619f69a23a364aab8b1468afc062f,
